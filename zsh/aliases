@@ -1,6 +1,19 @@
 alias vi="nvim"
-alias ll="ls -lah"
+alias aliaslist="cat $HOME/.config/zsh/aliases"
+
+# Git
 alias gs="git status"
 alias ga="git add"
-alias gc="git commit"
-alias gp="git push"
+alias gall="git add ."
+alias gc="git commit -m"
+alias gpush="git push"
+alias gpull="git pull"
+alias glog="git log --oneline"
+alias glogl="git log -1 --oneline"
+alias gsw="git switch"
+alias gswc="git switch -c"
+alias gdiff="git diff"
+alias gi="git init"
+
+# Docker compose
+alias dc=docker-compose
