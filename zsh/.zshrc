@@ -3,6 +3,7 @@ source "$XDG_CONFIG_HOME/zsh/aliases"
 # load everything external dependencies
 source "$XDG_CONFIG_HOME/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$XDG_CONFIG_HOME/zsh/plugins/bd.zsh"
+source "$XDG_CONFIG_HOME/zsh/plugins/zsh-vi-mode/zsh-vi-mode.zsh"
 fpath+="$XDG_CONFIG_HOME/zsh/plugins/pure"
 
 # init prompt and pick pure
