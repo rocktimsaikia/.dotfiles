@@ -1,3 +1,13 @@
+" Start NERDTree. If a file is specified, move the cursor to its window.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
+" Start NERDTree when Vim starts with a directory argument.
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
+    \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
+" Close the tab if NERDTree is the only window remaining in it.
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+
 set number
 set autoindent
 set shiftwidth=4
@@ -47,6 +57,7 @@ let g:tokyonight_colors = {
 
 colorscheme tokyonight
 
+
 " NerdTree mapping
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
@@ -78,7 +89,7 @@ nnoremap <silent>    <A-c> :BufferClose<CR>
 " Wipeout buffer
 "                          :BufferWipeout<CR>
 " Close commands
-"                          :BufferCloseAllButCurrent<CR>
+nnoremap <silent>    <A-x> :BufferCloseAllButCurrent<CR>
 "                          :BufferCloseAllButPinned<CR>
 "                          :BufferCloseBuffersLeft<CR>
 "                          :BufferCloseBuffersRight<CR>
@@ -89,8 +100,4 @@ nnoremap <silent> <Space>bb :BufferOrderByBufferNumber<CR>
 nnoremap <silent> <Space>bd :BufferOrderByDirectory<CR>
 nnoremap <silent> <Space>bl :BufferOrderByLanguage<CR>
 nnoremap <silent> <Space>bw :BufferOrderByWindowNumber<CR>
-
-" Other:
-" :BarbarEnable - enables barbar (enabled by default)
-" :BarbarDisable - very bad command, should never be used
 
