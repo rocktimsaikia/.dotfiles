@@ -8,3 +8,6 @@ fpath+="$XDG_CONFIG_HOME/zsh/plugins/pure"
 autoload -U promptinit; promptinit
 zstyle :prompt:pure:git:stash show yes
 prompt pure
+
+# the syntax highlighting plugins requires to be sourced at the end
+source "$XDG_CONFIG_HOME/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"

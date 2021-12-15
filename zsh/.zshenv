@@ -1,6 +1,6 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$XDG_CONFIG_HOME/local/share"
-export XDG_CACHE_HOME="$XDG_DATA_HOUSR/cache"
+export XDG_CACHE_HOME="$XDG_DATA_HOME/cache"
 export DOT_FILES="$HOME/.dotfiles"
 
 export EDITOR="nvim"
