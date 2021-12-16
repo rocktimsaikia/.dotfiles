@@ -1,4 +1,5 @@
 alias vi="nvim"
+alias code="codium"
 alias aliaslist="cat $HOME/.config/zsh/aliases"
 
 # Git

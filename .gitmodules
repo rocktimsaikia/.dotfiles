@@ -13,3 +13,6 @@
 [submodule "zsh/plugins/zsh-autopair"]
 	path = zsh/plugins/zsh-autopair
 	url = https://github.com/hlissner/zsh-autopair
+[submodule "zsh/plugins/auto-ls-zsh"]
+	path = zsh/plugins/auto-ls-zsh
+	url = https://github.com/rocktimsaikia/auto-ls-zsh
