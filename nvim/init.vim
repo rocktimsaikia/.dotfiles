@@ -15,6 +15,7 @@ Plug 'itchyny/vim-gitbranch'
 Plug 'romgrk/barbar.nvim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'andweeb/presence.nvim'
 call plug#end()
 
 " TokyoNight theme
