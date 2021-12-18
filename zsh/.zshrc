@@ -24,3 +24,5 @@ eval "$(pyenv init -)"
 
 # the syntax highlighting plugins requires to be sourced at the end
 source "$XDG_CONFIG_HOME/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+export PATH="$PATH:`yarn global bin`"
