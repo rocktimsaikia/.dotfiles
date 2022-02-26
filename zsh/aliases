@@ -1,6 +1,6 @@
 alias vi="nvim"
-alias alist="cat $HOME/.config/zsh/aliases"
-alias zshrc="vi ~/.dotfiles/zsh/.zshrc"
+alias vit="gnome terminal -- vi"
+alias vzshrc="vi ~/.dotfiles/zsh/.zshrc"
 alias valias="vi ~/.dotfiles/zsh/aliases"
 # Git
 alias ga="git add"
@@ -19,7 +19,6 @@ alias gbd="git branch -D"
 # Docker compose
 alias dc=docker-compose
 
-alias vin="gnome terminal -- vi"
 alias ls="ls -A"
 alias ll="ls -Alh"
 
