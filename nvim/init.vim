@@ -6,8 +6,10 @@ set scrolloff=8
 set smarttab
 set mouse=a
 set termguicolors
+filetype plugin indent on
 
 call plug#begin('~/.vim/plugged')
+Plug 'neovim/nvim-lspconfig'
 Plug 'ryanoasis/vim-devicons'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'folke/tokyonight.nvim'

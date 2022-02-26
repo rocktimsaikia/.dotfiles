@@ -15,12 +15,15 @@ alias gshc="git switch -c"
 alias glg="git log"
 alias gbm="git branch -m"
 alias gbd="git branch -D"
+alias gd="git diff"
 
 # Docker compose
 alias dc=docker-compose
 
-alias ls="ls -A"
-alias ll="ls -Alh"
+alias ls="ls -p"
+alias la="ls -A"
+alias ll="ls -l"
+alias lla="ll -A"
 
 alias rm="rm -i"
 alias cp="cp -i"
