@@ -1,4 +1,5 @@
 set number
+set relativenumber
 set autoindent
 set shiftwidth=4
 set scrolloff=8
@@ -14,8 +15,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'itchyny/vim-gitbranch'
 Plug 'romgrk/barbar.nvim'
 Plug 'jiangmiao/auto-pairs'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'andweeb/presence.nvim'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 " TokyoNight theme

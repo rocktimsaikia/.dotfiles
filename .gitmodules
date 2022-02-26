@@ -16,3 +16,6 @@
 [submodule "zsh/plugins/auto-ls-zsh"]
 	path = zsh/plugins/auto-ls-zsh
 	url = https://github.com/rocktimsaikia/auto-ls-zsh
+[submodule "zsh/plugins/zsh-you-should-use"]
+	path = zsh/plugins/zsh-you-should-use
+	url = https://github.com/MichaelAquilina/zsh-you-should-use

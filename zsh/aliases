@@ -1,20 +1,28 @@
 alias vi="nvim"
-alias code="codium"
-alias aliaslist="cat $HOME/.config/zsh/aliases"
-
+alias alist="cat $HOME/.config/zsh/aliases"
+alias zshrc="vi ~/.dotfiles/zsh/.zshrc"
+alias valias="vi ~/.dotfiles/zsh/aliases"
 # Git
-alias gs="git status"
 alias ga="git add"
-alias gall="git add ."
+alias gaa="git add --all"
+alias gs="git status"
 alias gc="git commit -m"
-alias gpush="git push"
-alias gpull="git pull"
-alias glog="git log --oneline"
-alias glogl="git log -1 --oneline"
-alias gsw="git switch"
-alias gswc="git switch -c"
-alias gdiff="git diff"
-alias gi="git init"
+alias gp="git push"
+alias gpp="git push -u origin HEAD"
+alias gl="git pull"
+alias gsh="git switch"
+alias gshc="git switch -c"
+alias glg="git log"
+alias gbm="git branch -m"
+alias gbd="git branch -D"
 
 # Docker compose
 alias dc=docker-compose
+
+alias vin="gnome terminal -- vi"
+alias ls="ls -A"
+alias ll="ls -Alh"
+
+alias rm="rm -i"
+alias cp="cp -i"
+alias mv="mv -i"
