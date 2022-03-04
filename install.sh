@@ -9,8 +9,7 @@ ln -sf "$HOME/.dotfiles/nvim/after" "$HOME/.config/nvim"
 # init zsh config
 mkdir -p "$HOME/.config/zsh"
 ln -sf "$HOME/.dotfiles/zsh/.zshenv" "$HOME"
-ln -sf "$HOME/.dotfiles/zsh/.zshrc" "$HOME/.config/zsh"
+ln -sf "$HOME/.dotfiles/zsh" "$HOME/.config/zsh"
 ln -sf "$HOME/.dotfiles/zsh/aliases" "$HOME/.config/zsh"
-
-# symlink the external submodules
-ln -sf "$HOME/.dotfiles/zsh/plugins" "$HOME/.config/zsh"
+ln -sf "$HOME/.dotfiles/zsh/antigen.zsh" "$HOME/.config/zsh"
+ln -sf "$HOME/.dotfiles/zsh/pure" "$HOME/.config/zsh"

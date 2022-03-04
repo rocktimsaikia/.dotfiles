@@ -1,30 +1,24 @@
-source "$XDG_CONFIG_HOME/zsh/aliases"
-
-# load everything external dependencies
-source "$XDG_CONFIG_HOME/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
-source "$XDG_CONFIG_HOME/zsh/plugins/bd.zsh"
-source "$XDG_CONFIG_HOME/zsh/plugins/zsh-vi-mode/zsh-vi-mode.zsh"
-source "$XDG_CONFIG_HOME/zsh/plugins/zsh-autopair/autopair.zsh"
-source "$XDG_CONFIG_HOME/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh"
-fpath+="$XDG_CONFIG_HOME/zsh/plugins/pure"
-
 # init prompt and pick pure
+fpath+="$XDG_CONFIG_HOME/zsh/pure"
 autoload -U promptinit; promptinit
 zstyle :prompt:pure:git:stash show yes
 prompt pure
 
+source "$XDG_CONFIG_HOME/zsh/aliases"
+source "$XDG_CONFIG_HOME/zsh/antigen.zsh"
+
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle MichaelAquilina/zsh-you-should-use
+
+#zsh-you-should-use
 export YSU_MESSAGE_POSITION="after"
 
-# load env
-source "$XDG_CONFIG_HOME/zsh/plugins/init-nvm.zsh"
+#zsh-autosuggestions
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
-# load pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"    # if `pyenv` is not already on PATH
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
+#load nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
-# the syntax highlighting plugins requires to be sourced at the end
-source "$XDG_CONFIG_HOME/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-
-export PATH="$PATH:`yarn global bin`"
+antigen apply

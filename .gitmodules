@@ -7,15 +7,12 @@
 [submodule "zsh/plugins/zsh-syntax-highlighting"]
 	path = zsh/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule "zsh/plugins/zsh-vi-mode"]
-	path = zsh/plugins/zsh-vi-mode
-	url = https://github.com/jeffreytse/zsh-vi-mode.git
-[submodule "zsh/plugins/zsh-autopair"]
-	path = zsh/plugins/zsh-autopair
-	url = https://github.com/hlissner/zsh-autopair
-[submodule "zsh/plugins/auto-ls-zsh"]
-	path = zsh/plugins/auto-ls-zsh
-	url = https://github.com/rocktimsaikia/auto-ls-zsh
 [submodule "zsh/plugins/zsh-you-should-use"]
 	path = zsh/plugins/zsh-you-should-use
 	url = https://github.com/MichaelAquilina/zsh-you-should-use
+[submodule "zsh/plugins/zsh-autocomplete"]
+	path = zsh/plugins/zsh-autocomplete
+	url = https://github.com/marlonrichert/zsh-autocomplete
+[submodule "zsh/pure"]
+	path = zsh/pure
+	url = https://github.com/sindresorhus/pure.git

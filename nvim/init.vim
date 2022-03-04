@@ -18,6 +18,7 @@ Plug 'itchyny/vim-gitbranch'
 Plug 'romgrk/barbar.nvim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 call plug#end()
 
 " TokyoNight theme
