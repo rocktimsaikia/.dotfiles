@@ -10,6 +10,7 @@ source "$XDG_CONFIG_HOME/zsh/antigen.zsh"
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle MichaelAquilina/zsh-you-should-use
+antigen bundle hlissner/zsh-autopair
 
 #zsh-you-should-use
 export YSU_MESSAGE_POSITION="after"
