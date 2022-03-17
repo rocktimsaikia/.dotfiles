@@ -30,6 +30,7 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'rafamadriz/friendly-snippets'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'onsails/lspkind-nvim'
 call plug#end()
 
 function! s:goyo_enter()
@@ -64,20 +65,41 @@ lua << EOF
 --- Setup nvim-cmp.
 local cmp = require('cmp')
 
+local lspkind = require("lspkind")
+local source_mapping = {
+	nvim_lsp    = "[LSP]",
+	nvim_lua    = "[Lua]",
+}
+
 cmp.setup({
     snippet = {
     expand = function(args)
 	require('luasnip').lsp_expand(args.body)
     end,
     },
+
+    formatting = {
+	format = lspkind.cmp_format({
+	    mode = 'text_symbol',
+	    maxwidth = 50,
+	    before = function(entry, vim_item)
+		local menu = source_mapping[entry.source.name]
+		vim_item.menu = menu
+		return vim_item
+	    end 
+	})
+    },
+
     mapping = {
 	['<Tab>'] = cmp.mapping.confirm({ select = true }),
     },
     sources = cmp.config.sources({
 	{ name = 'nvim_lsp' },
-	{ name = 'luasnip' }
+	{ name = 'luasnip' },
     }),
 })
+
+-- load vs-code style snippets from "friendly-snippet" https://github.com/rafamadriz/friendly-snippets
 require("luasnip.loaders.from_vscode").lazy_load()
 
 --- Setup lspconfig.
@@ -91,6 +113,7 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
 end
 
+--- decorate the hover menu border
 local handlers = {
     ['textDocument/hover'] =  vim.lsp.with(vim.lsp.handlers.hover, {border = 'rounded'}),
 }
@@ -107,6 +130,5 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
   },
 }
-
 EOF
 
