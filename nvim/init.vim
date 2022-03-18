@@ -39,6 +39,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'onsails/lspkind-nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'jose-elias-alvarez/nvim-lsp-ts-utils'
+Plug 'nvim-lualine/lualine.nvim'
 call plug#end()
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -128,3 +129,15 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
+lua << END
+require('lualine').setup({
+    options = { 
+	theme = 'ayu_mirage',
+	section_separators = '',
+	component_separators = '',
+    },
+    sections = {
+	lualine_y = {},
+    }
+})
+END
