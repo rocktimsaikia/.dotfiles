@@ -31,12 +31,3 @@ alias grm="git rm -r --cached"
 
 # Docker compose
 alias dc=docker-compose
-
-alias ls="ls -p"
-alias la="ls -A"
-alias ll="ls -l"
-alias lla="ll -A"
-
-alias rm="rm -i"
-alias cp="cp -i"
-alias mv="mv -i"
