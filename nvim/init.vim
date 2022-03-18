@@ -130,6 +130,7 @@ require'nvim-treesitter.configs'.setup {
 EOF
 
 lua << END
+-- Setup Lualine
 require('lualine').setup({
     options = { 
 	theme = 'ayu_mirage',
