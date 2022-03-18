@@ -8,6 +8,7 @@ alias ipinfo="curl https://ipinfo.io/"
 alias remove="sudo apt-get --purge autoremove"
 alias weather="curl https://wttr.in/"
 alias cputemp="bash ~/temp.sh"
+alias res="xdpyinfo | awk '/dimensions/{print $2}'"
 # Git
 alias ga="git add"
 alias gaa="git add --all"

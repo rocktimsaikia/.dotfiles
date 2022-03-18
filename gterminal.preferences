@@ -1,0 +1,46 @@
+[legacy/profiles:]
+list=['5cbb1458-37dc-4902-8b58-1b03c4c3ab2c']
+
+[legacy/profiles:/:5cbb1458-37dc-4902-8b58-1b03c4c3ab2c]
+allow-bold=true
+audible-bell=true
+background-color='#1a1a1b1b2626'
+background-transparency-percent=16
+bold-color='#c0c0cacaf5f5'
+bold-color-same-as-fg=true
+cursor-background-color='#c0c0cacaf5f5'
+cursor-colors-set=true
+cursor-foreground-color='#1a1a1b1b2626'
+default-size-columns=115
+default-size-rows=32
+font='JetBrains Mono NL Medium 11'
+foreground-color='#c0c0cacaf5f5'
+palette=['#414148486868', '#f7f776768e8e', '#9e9ecece6a6a', '#e0e0afaf6868', '#7a7aa2a2f7f7', '#bbbb9a9af7f7', '#7d7dcfcfffff', '#a9a9b1b1d6d6', '#414148486868', '#f7f776768e8e', '#9e9ecece6a6a', '#e0e0afaf6868', '#7a7aa2a2f7f7', '#bbbb9a9af7f7', '#7d7dcfcfffff', '#c0c0cacaf5f5']
+scrollbar-policy='never'
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+use-theme-transparency=false
+use-transparent-background=false
+visible-name='Tokyo Night'
+
+[legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+background-color='rgb(0,0,0)'
+background-transparency-percent=19
+bold-color-same-as-fg=true
+bold-is-bright=true
+cursor-colors-set=false
+custom-command='tmux -u'
+default-size-columns=200
+default-size-rows=100
+font='JetBrains Mono NL Medium 12'
+foreground-color='rgb(255,255,255)'
+highlight-colors-set=false
+palette=['rgb(46,52,54)', 'rgb(204,0,0)', 'rgb(78,154,6)', 'rgb(196,160,0)', 'rgb(52,101,164)', 'rgb(117,80,123)', 'rgb(6,152,154)', 'rgb(211,215,207)', 'rgb(85,87,83)', 'rgb(239,41,41)', 'rgb(138,226,52)', 'rgb(252,233,79)', 'rgb(114,159,207)', 'rgb(173,127,168)', 'rgb(52,226,226)', 'rgb(238,238,236)']
+scrollback-unlimited=true
+use-custom-command=false
+use-system-font=false
+use-theme-colors=false
+use-theme-transparency=false
+use-transparent-background=true
+visible-name='rocktim'
