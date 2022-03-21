@@ -43,6 +43,8 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'tpope/vim-commentary'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
 call plug#end()
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -51,6 +53,12 @@ xmap ga <Plug>(EasyAlign)
 "colorsscheme
 let g:tokyonight_style = "night"
 colorscheme tokyonight
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 lua << EOF
 --- Setup nvim-cmp.
