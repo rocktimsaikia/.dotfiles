@@ -15,3 +15,4 @@ ln -sf "$HOME/.dotfiles/zsh/pure" "$HOME/.config/zsh"
 
 # symlink tmux conf file
 ln -sf "$HOME/.dotfiles/tmux/.tmux.conf" "$HOME/.tmux.conf"
+ln -sf "$HOME/.dotfiles/tmux/plugins" "$HOME/.tmux/plugins"

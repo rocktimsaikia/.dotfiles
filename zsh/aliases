@@ -1,6 +1,6 @@
 alias vi="nvim"
 alias vit="gnome terminal -- vi"
-alias vzshrc="vi ~/.dotfiles/zsh/.zshrc"
+alias zshrc="vi ~/.dotfiles/zsh/.zshrc"
 alias vimrc="vi ~/.dotfiles/nvim/init.vim"
 alias valias="vi ~/.dotfiles/zsh/aliases"
 alias pbcopy="xclip -selection clipboard"
