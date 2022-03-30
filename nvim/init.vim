@@ -7,6 +7,8 @@ set smarttab
 set mouse=a
 set termguicolors
 set completeopt=menu,menuone,noselect
+:set listchars=tab:>·,space:·
+set list
 
 set wildignore+=node_modules/**,.git/**
 set wildignore+=yarn*
@@ -138,6 +140,7 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
     -- nvim-lsp-ts-utils mappings
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gf', ':TSLspRenameFile<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gs', ':TSLspOrganize<CR>', opts)
@@ -167,6 +170,9 @@ require'lspconfig'.tsserver.setup {
     capabilities = capabilities,
     handlers = handlers
 }
+
+-- Enable tailwindCSS language server
+require'lspconfig'.tailwindcss.setup{}
 
 --- Setup treesitter.
 require'nvim-treesitter.configs'.setup {
