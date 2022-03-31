@@ -17,6 +17,8 @@ set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg,*.webp,*.pdf
 " Change default keybinding
 " Change map leader
 let mapleader = " "
+" noh - no highlight
+map <esc> :noh <CR>
 " Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
 nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
 nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
