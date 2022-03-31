@@ -195,6 +195,11 @@ EOF
 
 lua << END
 -- Setup Lualine
+local function line_total()
+    return vim.api.nvim_buf_line_count(vim.fn.winbufnr(
+      vim.g.statusline_winid))
+end
+
 require('lualine').setup({
     options = { 
 	theme = 'ayu_mirage',
@@ -202,7 +207,13 @@ require('lualine').setup({
 	component_separators = '',
     },
     sections = {
-	lualine_y = {},
+	lualine_c = {
+	  {
+	      'filename',
+	      path = 1
+	  }
+	},
+	lualine_y = {line_total},
 	lualine_z = {'ObsessionStatus'}
     }
 })
