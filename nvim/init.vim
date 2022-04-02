@@ -14,6 +14,8 @@ set wildignore+=node_modules/**,.git/**
 set wildignore+=yarn*
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg,*.webp,*.pdf
 
+nnoremap <Space> @q
+
 " Change default keybinding
 " Change map leader
 let mapleader = " "
@@ -55,6 +57,9 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'tpope/vim-obsession'
 Plug 'f-person/git-blame.nvim'
+Plug 'tpope/vim-unimpaired'
+Plug 'romgrk/barbar.nvim'
+Plug 'xiyaowong/nvim-transparent'
 call plug#end()
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -116,6 +121,7 @@ require("luasnip.loaders.from_vscode").lazy_load()
 
 --- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local opts = { noremap=true, silent=true }
 local ts_utils = require('nvim-lsp-ts-utils')
@@ -176,6 +182,11 @@ require'lspconfig'.tsserver.setup {
 -- Enable tailwindCSS language server
 require'lspconfig'.tailwindcss.setup{}
 
+-- Enable HTML language server
+require'lspconfig'.html.setup {
+  capabilities = capabilities,
+}
+
 --- Setup treesitter.
 require'nvim-treesitter.configs'.setup {
   highlight = {
@@ -218,5 +229,58 @@ require('lualine').setup({
 	lualine_y = {line_total},
 	lualine_z = {'ObsessionStatus'}
     }
+})
+END
+
+lua << END
+-- barbar mappings
+local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+
+-- Move to previous/next
+map('n', '<A-,>', ':BufferPrevious<CR>', opts)
+map('n', '<A-.>', ':BufferNext<CR>', opts)
+-- Re-order to previous/next
+map('n', '<A-<>', ':BufferMovePrevious<CR>', opts)
+map('n', '<A->>', ' :BufferMoveNext<CR>', opts)
+-- Goto buffer in position...
+map('n', '<A-1>', ':BufferGoto 1<CR>', opts)
+map('n', '<A-2>', ':BufferGoto 2<CR>', opts)
+map('n', '<A-3>', ':BufferGoto 3<CR>', opts)
+map('n', '<A-4>', ':BufferGoto 4<CR>', opts)
+map('n', '<A-5>', ':BufferGoto 5<CR>', opts)
+map('n', '<A-6>', ':BufferGoto 6<CR>', opts)
+map('n', '<A-7>', ':BufferGoto 7<CR>', opts)
+map('n', '<A-8>', ':BufferGoto 8<CR>', opts)
+map('n', '<A-9>', ':BufferGoto 9<CR>', opts)
+map('n', '<A-0>', ':BufferLast<CR>', opts)
+-- Close buffer
+map('n', '<A-c>', ':BufferClose<CR>', opts)
+-- Wipeout buffer
+--                 :BufferWipeout<CR>
+-- Close commands
+--                 :BufferCloseAllButCurrent<CR>
+--                 :BufferCloseBuffersLeft<CR>
+--                 :BufferCloseBuffersRight<CR>
+-- Magic buffer-picking mode
+map('n', '<C-p>', ':BufferPick<CR>', opts)
+-- Sort automatically by...
+map('n', '<Space>bb', ':BufferOrderByBufferNumber<CR>', opts)
+map('n', '<Space>bd', ':BufferOrderByDirectory<CR>', opts)
+map('n', '<Space>bl', ':BufferOrderByLanguage<CR>', opts)
+
+-- Other:
+-- :BarbarEnable - enables barbar (enabled by default)
+-- :BarbarDisable - very bad command, should never be used
+END
+
+
+lua << END
+require("transparent").setup({
+  enable = true, -- boolean: enable transparent
+  extra_groups = { -- table/string: additional groups that should be clear
+    -- In particular, when you set it to 'all', that means all avaliable groups
+  },
+  exclude = {}, -- table: groups you don't want to clear
 })
 END
