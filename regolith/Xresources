@@ -2,8 +2,3 @@ gnome.terminal.font:	JetBrains Mono 11
 gnome.wallpaper:   ~/Downloads/walls/sunset.jpg
 gnome.terminal.use-transparent-background: true
 gnome.terminal.background-transparency-percent: 15
-
-i3-wm.workspace.01.name: 1: Terminal
-i3-wm.workspace.02.name: 2: Browser
-i3-wm.workspace.03.name: 3: Spotify
-
