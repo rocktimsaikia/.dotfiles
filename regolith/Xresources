@@ -5,3 +5,4 @@ gnome.terminal.background-transparency-percent: 15
 
 i3-wm.program.1: /usr/bin/x-terminal-emulator
 
+

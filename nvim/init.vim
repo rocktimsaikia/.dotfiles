@@ -7,7 +7,7 @@ set smarttab
 set mouse=a
 set termguicolors
 set completeopt=menu,menuone,noselect
-:set listchars=tab:>·,space:·
+set listchars=tab:>·,space:·
 set list
 
 set wildignore+=node_modules/**,.git/**
@@ -60,6 +60,7 @@ Plug 'f-person/git-blame.nvim'
 Plug 'tpope/vim-unimpaired'
 Plug 'romgrk/barbar.nvim'
 Plug 'xiyaowong/nvim-transparent'
+Plug 'tpope/vim-vinegar'
 call plug#end()
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
