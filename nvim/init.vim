@@ -9,18 +9,17 @@ set termguicolors
 set completeopt=menu,menuone,noselect
 set listchars=tab:>·,space:·
 set list
+set formatoptions-=cro
 
 set wildignore+=node_modules/**,.git/**
-set wildignore+=yarn*
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg,*.webp,*.pdf
 
-nnoremap <Space> @q
+" noh - no highlight
+map <esc> :noh <CR>
 
 " Change default keybinding
 " Change map leader
 let mapleader = " "
-" noh - no highlight
-map <esc> :noh <CR>
 " Ctrl-j/k deletes blank line below/above, and Alt-j/k inserts.
 nnoremap <silent><C-j> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
 nnoremap <silent><C-k> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
@@ -31,6 +30,11 @@ inoremap , ,<c-g>u
 inoremap . .<c-g>u
 inoremap ! !<c-g>u
 inoremap ? ?<c-g>u
+
+" Record macros
+nnoremap <Leader> @q
+
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 "plugins
 call plug#begin()
@@ -61,6 +65,9 @@ Plug 'tpope/vim-unimpaired'
 Plug 'romgrk/barbar.nvim'
 Plug 'xiyaowong/nvim-transparent'
 Plug 'tpope/vim-vinegar'
+Plug 'akinsho/toggleterm.nvim'
+Plug 'nelstrom/vim-visual-star-search'
+Plug 'wellle/targets.vim'
 call plug#end()
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -71,14 +78,11 @@ let g:tokyonight_style = "night"
 colorscheme tokyonight
 
 " Find files using Telescope command-line sugar.
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>ff <cmd>Telescope find_files hidden=true<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
-" Comment jsx,tsx files
-autocmd FileType javascript.jsx setlocal commentstring={/*\ %s\ */}
-autocmd FileType typescript.tsx setlocal commentstring={/*\ %s\ */}
 lua << EOF
 --- Setup nvim-cmp.
 local cmp = require('cmp')
@@ -188,6 +192,16 @@ require'lspconfig'.html.setup {
   capabilities = capabilities,
 }
 
+require'lspconfig'.rls.setup {
+   settings = {
+    rust = {
+      unstable_features = true,
+      build_on_save = false,
+      all_features = true,
+    },
+  },
+}
+
 --- Setup treesitter.
 require'nvim-treesitter.configs'.setup {
   highlight = {
@@ -196,12 +210,12 @@ require'nvim-treesitter.configs'.setup {
 }
 
 -- Setup null-ls
-require('null-ls').setup({
-    debug = true,
+local null_ls = require('null-ls')
+null_ls.setup({
+    debug = false,
     sources = {
---	require('null-ls').builtins.code_actions.xo,
---	require('null-ls').builtins.diagnostics.xo,
-	require('null-ls').builtins.formatting.prettier
+	null_ls.builtins.formatting.prettierd,
+	null_ls.builtins.formatting.rustfmt,
     },
     on_attach = on_attach,
 })
@@ -284,4 +298,17 @@ require("transparent").setup({
   },
   exclude = {}, -- table: groups you don't want to clear
 })
+END
+
+
+lua << END
+require('toggleterm').setup{
+  size = 15,
+  open_mapping = [[<c-\>]],
+  shade_terminals = true,
+  shading_factor = 3,
+  start_in_insert = true,
+  persist_size = true,
+  direction = 'horizontal'
+}
 END
