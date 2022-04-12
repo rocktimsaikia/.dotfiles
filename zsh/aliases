@@ -35,3 +35,6 @@ alias grm="git rm -r --cached"
 
 # Docker compose
 alias dc=docker-compose
+
+# External
+alias cat=batcat

@@ -154,14 +154,20 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-    -- nvim-lsp-ts-utils mappings
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gf', ':TSLspRenameFile<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gs', ':TSLspOrganize<CR>', opts)
 
     if client.name == 'tsserver' then
+	    -- nvim-lsp-ts-utils mappings
+	    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gf', ':TSLspRenameFile<CR>', opts)
+	    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gs', ':TSLspOrganize<CR>', opts)
 	    client.resolved_capabilities.document_formatting = false
 	    client.resolved_capabilities.document_range_formatting = false
     end
+
+    if client.name == 'rust_analyzer' then
+	    client.resolved_capabilities.document_formatting = false
+	    client.resolved_capabilities.document_range_formatting = false
+    end
+
 
     if client.resolved_capabilities.document_formatting then
 	vim.cmd([[
@@ -192,14 +198,9 @@ require'lspconfig'.html.setup {
   capabilities = capabilities,
 }
 
-require'lspconfig'.rls.setup {
-   settings = {
-    rust = {
-      unstable_features = true,
-      build_on_save = false,
-      all_features = true,
-    },
-  },
+require'lspconfig'.rust_analyzer.setup{
+    on_attach = on_attach,
+    capabilities = capabilities,
 }
 
 --- Setup treesitter.
@@ -215,7 +216,7 @@ null_ls.setup({
     debug = false,
     sources = {
 	null_ls.builtins.formatting.prettierd,
-	null_ls.builtins.formatting.rustfmt,
+        null_ls.builtins.formatting.rustfmt
     },
     on_attach = on_attach,
 })
