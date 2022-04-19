@@ -76,6 +76,9 @@ Plug 'heavenshell/vim-jsdoc', {
 Plug 'github/copilot.vim'
 call plug#end()
 
+" vim-jsdoc mapping for quick jsdoc generation
+nmap <silent> <C-l> <Plug>(jsdoc)
+
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 
