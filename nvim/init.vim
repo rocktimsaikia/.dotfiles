@@ -301,18 +301,6 @@ map('n', '<Space>bl', ':BufferOrderByLanguage<CR>', opts)
 -- :BarbarDisable - very bad command, should never be used
 END
 
-
-lua << END
-require("transparent").setup({
-  enable = true, -- boolean: enable transparent
-  extra_groups = { -- table/string: additional groups that should be clear
-    -- In particular, when you set it to 'all', that means all avaliable groups
-  },
-  exclude = {}, -- table: groups you don't want to clear
-})
-END
-
-
 lua << END
 require('toggleterm').setup{
   size = 15,
@@ -321,6 +309,17 @@ require('toggleterm').setup{
   shading_factor = 3,
   start_in_insert = true,
   persist_size = true,
-  direction = 'horizontal'
+  direction = 'float'
 }
+END
+
+lua << END
+require("transparent").setup({
+  enable = true, -- boolean: enable transparent
+  extra_groups = { -- table/string: additional groups that should be clear
+    -- In particular, when you set it to 'all', that means all avaliable groups
+  },
+  exclude = {
+  }, -- table: groups you don't want to clear
+})
 END
