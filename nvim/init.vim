@@ -1,14 +1,14 @@
-set number
-set relativenumber
-set autoindent
-set shiftwidth=2
-set scrolloff=8
-set smarttab
-set mouse=a
-set termguicolors
-set completeopt=menu,menuone,noselect
-set listchars=tab:>·,space:·
-set list
+set number 
+set relativenumber 
+set autoindent 
+set shiftwidth=2 
+set scrolloff=8 
+set smarttab 
+set mouse=a 
+set termguicolors 
+set completeopt=menu,menuone,noselect 
+set listchars=tab:>·,space:· 
+set list 
 set formatoptions-=cro
 
 set wildignore+=node_modules/**,.git/**
@@ -68,6 +68,12 @@ Plug 'tpope/vim-vinegar'
 Plug 'akinsho/toggleterm.nvim'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'wellle/targets.vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'heavenshell/vim-jsdoc', {
+  \ 'for': ['javascript', 'javascript.jsx', 'typescript.tsx', 'typescript'],
+  \ 'do': 'make install'
+\}
+Plug 'github/copilot.vim'
 call plug#end()
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -216,7 +222,9 @@ null_ls.setup({
     debug = false,
     sources = {
 	null_ls.builtins.formatting.prettierd,
-        null_ls.builtins.formatting.rustfmt
+        null_ls.builtins.formatting.rustfmt,
+	null_ls.builtins.formatting.shellharden,
+	null_ls.builtins.code_actions.shellcheck,
     },
     on_attach = on_attach,
 })

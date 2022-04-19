@@ -10,7 +10,6 @@ alias weather="curl https://wttr.in/"
 alias cputemp="bash ~/temp.sh"
 alias res="xdpyinfo | awk '/dimensions/{print $2}'"
 alias tmux="tmux -u"
-alias gopen="hub browse"
 alias free="free -h --si"
 alias df="df -h"
 alias ls="ls -lhF --time-style=long-iso --color=auto"
@@ -36,5 +35,8 @@ alias grm="git rm -r --cached"
 # Docker compose
 alias dc=docker-compose
 
-# External
-alias cat=batcat
+
+# Github
+alias gopen="hub browse"
+alias gcreate="hub create"
+alias grelease="hub release create -t master"
